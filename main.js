@@ -14,5 +14,5 @@ const headers = {
 async function nextJoke() {
     const request = await fetch(API_URL, headers);  // obtenemos los datos de la API...
     const response = await request.json();  // ...en formato json
-    console.log(response.joke);
+    document.getElementById('joke').innerHTML = response.joke;
 }
