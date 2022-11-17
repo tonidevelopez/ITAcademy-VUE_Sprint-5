@@ -1,8 +1,13 @@
-// --------------- API JOKES ---------------
 // capturamos el botón de HTML y ejecutamos la función con el evento click
 const next_btn = document.querySelector('#next_btn');
-next_btn.addEventListener('click', nextJoke);
+next_btn.addEventListener('click', randomJoke);
 
+// usamos aleatoriamente una u otra API
+function randomJoke() {
+    Math.random() < 0.5 ? nextJoke() : nextChuck();
+}
+
+// --------------- API JOKES ---------------
 // asignamos variables a la URL y a los headers de la API (para pasarlos como argumentos)
 const API_JOKES = 'https://icanhazdadjoke.com/';
 const headers = {
@@ -16,6 +21,16 @@ async function nextJoke() {
     const request = await fetch(API_JOKES, headers);  // obtenemos los datos de la API...
     const response = await request.json();  // ...en formato json
     currentJoke = response.joke;
+    document.getElementById('joke').innerHTML = currentJoke;
+}
+
+// --------------- API CHUCK NORRIS ---------------
+const API_CHUCK = 'https://api.chucknorris.io/jokes/random';
+
+async function nextChuck() {
+    const request = await fetch(API_CHUCK);
+    const response = await request.json();
+    currentJoke = response.value;
     document.getElementById('joke').innerHTML = currentJoke;
 }
 
