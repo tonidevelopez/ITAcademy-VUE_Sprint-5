@@ -10,19 +10,25 @@
 </head>
 
 <body>
+    <header>
+        <img id="weatherIcon" src=""><span id="weatherTemp"></span>
+    </header>
     <main>
-        <header>
-            <p id="weather"></p>
-        </header>
         <section>
-            <h2>Preparat per riure? 🤣</h2>
-            <p id="joke"></p>
-            <div>
-                <button id="button1" class="buttonScore">😓</button>
-                <button id="button2" class="buttonScore">😐</button>
-                <button id="button3" class="buttonScore">🤣</button>
+            <div id="left"></div>
+            <div id="center">
+                <div id="jokeContainer">
+                    <h2>Preparat per riure?</h2>
+                    <p id="joke"></p>
+                    <div>
+                        <button id="button1" class="buttonScore">😓</button>
+                        <button id="button2" class="buttonScore">😐</button>
+                        <button id="button3" class="buttonScore">🤣</button>
+                    </div>
+                    <button id="next_btn">Següent acudit</button>
+                </div>
             </div>
-            <button id="next_btn">Següent acudit</button>
+            <div id="right"></div>
         </section>
     </main>
 

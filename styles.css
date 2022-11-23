@@ -8,41 +8,81 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+header {
+    margin-left: 2rem;
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+
+#weatherIcon {
+    width: 5rem;
+}
+
+#weatherTemp {
+    font-size: 1.2rem;
+    height: 2rem;
+    border-left: 2px solid black;
+    padding-left: 1rem;
+    line-height: 2rem;
+}
+
 main {
     width: 100%;
     height: 100vh;
-    background-image: url('./images/main-bg.jpg');
-    background-size: cover;
-    background-position: 25%;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     padding: 20px;
-}
-
-header {
-    align-self: flex-end;
-    margin-right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 section {
-    width: 600px;
-    height: 400px;
-    margin: 20px;
-    background-color: whitesmoke;
+    width: 100%;
+    height: 90%;
     text-align: center;
-    box-shadow: 2px 2px 20px gray;
-    border-radius: 5px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+}
+
+#left {
+    width: 15%;
+    height: 100%;
+    background-image: url('./images/blob1-left.svg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: 100% 50vh;
+}
+
+#center {
+    width: 70%;
+    height: 100%;
+    background-image: url('./images/blob1-center.svg');
+    background-size: 118%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#right {
+    width: 15%;
+    height: 100%;
+    background-image: url('./images/blob1-right.svg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: 100% 20vh;
+}
+
+#jokeContainer {
+    width: 60%;
+    color: white;
 }
 
 #joke {
     padding: 1rem;
+    min-height: 150px;
 }
 
 .buttonScore {
@@ -50,6 +90,7 @@ section {
     background-color: transparent;
     font-size: 2rem;
     cursor: pointer;
+    margin-bottom: 1rem;
 }
 
 #next_btn {
@@ -57,8 +98,15 @@ section {
     height: 50px;
     background-color: rgb(240, 219, 100);
     border: none;
-    box-shadow: 1px 1px 5px gray;
+    border-radius: 25px;
+    box-shadow: inset -2px -2px 5px black;
+    color: rgb(112, 44, 1);
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
 }
 
+#next_btn:active{
+    background-color: rgb(112, 44, 1);
+    color: rgb(240, 219, 100);
+}

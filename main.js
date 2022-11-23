@@ -1,6 +1,7 @@
 // capturamos el botón de HTML y ejecutamos la función con el evento click
 const next_btn = document.querySelector('#next_btn');
 next_btn.addEventListener('click', randomJoke);
+next_btn.addEventListener('click', blobs);
 
 // usamos aleatoriamente una u otra API
 function randomJoke() {
@@ -62,7 +63,18 @@ const API_WEATHER = 'https://api.openweathermap.org/data/2.5/weather?id=3119531&
 async function weather() {
     const request = await fetch(API_WEATHER);
     const response = await request.json();
-    currentWeather = response.weather[0].description;
-    document.getElementById('weather').innerHTML = `Avui a La Llagosta: ${currentWeather}`;
+    currentIcon = response.weather[0].icon;
+    currentTemp = Number((response.main.temp) - 273.15).toFixed(1);
+    currentIconWeather = `http://openweathermap.org/img/wn/${currentIcon}.png`
+    document.getElementById('weatherIcon').setAttribute('src', currentIconWeather);
+    document.getElementById('weatherTemp').innerHTML = `${currentTemp}ºC`;
 }
 weather();
+
+// --------------- IMAGENES FONDO --------------
+function blobs() {
+    random = Math.floor((Math.random() * (5 - 1 + 1)) + 1)
+    document.getElementById('left').style.backgroundImage = `url('./images/blob${random}-left.svg')`;
+    document.getElementById('center').style.backgroundImage = `url('./images/blob${random}-center.svg')`;
+    document.getElementById('right').style.backgroundImage = `url('./images/blob${random}-right.svg')`;
+}
